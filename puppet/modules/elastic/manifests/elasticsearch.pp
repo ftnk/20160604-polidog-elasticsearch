@@ -20,4 +20,10 @@ class elastic::elasticsearch (){
       Package['java'],
     ],
   }
+
+  firewall { '100 allow inbound elasticsearch (9200)':
+    dport  => 9200,
+    proto  => tcp,
+    action => accept,
+  }
 }
