@@ -6,6 +6,11 @@ rpm -q puppetlabs-release > /dev/null || \
 rpm -q puppet > /dev/null || \
     yum install -y puppet
 
+# Install Puppet module
+puppet module --modulepath=puppet/modules list | \
+    grep puppetlabs-firewall > /dev/null || \
+    puppet module --modulepath=./puppet/modules install puppetlabs-firewall
+
 # install dstat
 rpm -q dstat > /dev/null || \
     yum install -y http://pkgs.repoforge.org/dstat/dstat-0.7.2-1.el6.rfx.noarch.rpm
