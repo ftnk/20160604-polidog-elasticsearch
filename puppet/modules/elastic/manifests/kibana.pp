@@ -17,4 +17,10 @@ class elastic::kibana (){
     ensure => running,
     enable => true,
   }
+
+  firewall { '100 allow inbound kibana (5601)':
+    dport  => 5601,
+    proto  => tcp,
+    action => accept,
+  }
 }
