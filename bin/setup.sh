@@ -6,10 +6,6 @@ rpm -q puppetlabs-release > /dev/null || \
 rpm -q puppet > /dev/null || \
     yum install -y puppet
 
-# 
-rpm --import https://packages.elastic.co/GPG-KEY-elasticsearch
-rpm --import https://packages.treasuredata.com/GPG-KEY-td-agent
-
 # Run Puppet
 puppet apply \
        --modulepath=$(pwd)/puppet/modules \
