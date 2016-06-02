@@ -1,5 +1,7 @@
 node default {
 
+  include ::my_fw
+
   include ::elastic
   include ::elastic::elasticsearch
   include ::elastic::kibana
