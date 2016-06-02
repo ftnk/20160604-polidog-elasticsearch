@@ -7,7 +7,8 @@ rpm -q puppet > /dev/null || \
     yum install -y puppet
 
 # install dstat
-yum install -y http://pkgs.repoforge.org/dstat/dstat-0.7.2-1.el6.rfx.noarch.rpm
+rpm -q dstat > /dev/null || \
+    yum install -y http://pkgs.repoforge.org/dstat/dstat-0.7.2-1.el6.rfx.noarch.rpm
 
 # Run Puppet
 puppet apply \
