@@ -5,6 +5,9 @@ node default {
   include ::elastic::kibana
   include ::td_agent
 
+  td_agent::plugin { 'fluent-plugin-elasticsearch': }
+  td_agent::plugin { 'fluent-plugin-dstat': }
+
   package { 'java':
     ensure => installed,
     name   => 'java-1.8.0-openjdk',
