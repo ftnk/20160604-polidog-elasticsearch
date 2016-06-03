@@ -1,0 +1,46 @@
+{
+  "template": "dstat-*",
+  "mappings": {
+    "dstat": {
+        "properties" : {
+          "@fluentd_tag" : {
+            "type" : "string"
+          },
+          "@timestamp" : {
+            "type" : "date",
+            "format" : "strict_date_optional_time||epoch_millis"
+          },
+          "dstat" : {
+            "properties" : {
+              "total_cpu_usage" : {
+                "properties" : {
+                  "hiq" : {
+                    "type" : "double"
+                  },
+                  "idl" : {
+                    "type" : "double"
+                  },
+                  "siq" : {
+                    "type" : "double"
+                  },
+                  "sys" : {
+                    "type" : "double"
+                  },
+                  "usr" : {
+                    "type" : "double"
+                  },
+                  "wai" : {
+                    "type" : "double"
+                  }
+                }
+              }
+            }
+          },
+          "hostname" : {
+            "type" : "string"
+          }
+        }
+      }
+    }
+  }
+}
