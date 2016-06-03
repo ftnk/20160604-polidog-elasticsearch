@@ -5,6 +5,11 @@ class apache (){
     name   => 'httpd',
   }
 
+  package { 'mod_ssl':
+    ensure => installed,
+    notify => Service['apache']
+  }
+
   service { 'apache':
     ensure  => running,
     enable  => true,
