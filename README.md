@@ -13,5 +13,8 @@ CentOS 6.8 上で、
 
 ## usage
 
-root 権限で bin/setup.sh を実行。
-
+```
+$ git clone https://github.com/ftnk/20160604-polidog-elasticsearch.git
+$ cd 20160604-polidog-elasticsearch
+$ sudo sh ./bin/setup.sh
+```
