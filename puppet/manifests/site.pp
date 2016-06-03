@@ -3,6 +3,12 @@ node default {
   include ::apache
   include ::elastic
   include ::elastic::elasticsearch
+  elastic::elasticsearch::template { 'dstat': }
+  Elastic::Elasticsearch::Template['dstat'] -> Service['td-agent']
+
+  elastic::elasticsearch::template { 'apache_access_ltsv': }
+  Elastic::Elasticsearch::Template['apache_access_ltsv'] -> Service['td-agent']
+
   include ::elastic::kibana
   include ::td_agent
 
