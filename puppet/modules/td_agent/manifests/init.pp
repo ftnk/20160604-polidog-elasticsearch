@@ -23,4 +23,11 @@ class td_agent (){
     enable  => true,
     require => Package['td-agent'],
   }
+
+  file { '/etc/td-agent/td-agent.conf':
+    ensure  => file,
+    source  => 'puppet:///modules/td_agent/td-agent.conf',
+    require => Package['td-agent'],
+    notify  => Service['td-agent'],
+  }
 }
