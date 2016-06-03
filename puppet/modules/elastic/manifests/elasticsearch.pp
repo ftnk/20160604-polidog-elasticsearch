@@ -26,4 +26,19 @@ class elastic::elasticsearch (){
     proto  => tcp,
     action => accept,
   }
+
+  file { '/etc/elasticsearch/templates':
+    ensure  => directory,
+    require => Package['elasticsearch'],
+  }
+
+  file { '/etc/elasticsearch/templates/dstat':
+    ensure => file,
+    source => 'puppet:///modules/elastic/templates/dstat',
+  }
+
+  file { '/etc/elasticsearch/templates/apache_access_ltsv':
+    ensure => file,
+    source => 'puppet:///modules/elastic/templates/apache_access_ltsv',
+  }
 }
