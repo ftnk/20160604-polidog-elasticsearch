@@ -17,6 +17,13 @@ class apache (){
     action => accept,
   }
 
+  file { '/etc/httpd/conf.d/vhosts.conf':
+    ensure  => file,
+    source  => 'puppet:///modules/apache/vhosts.conf',
+    require => Package['apache'],
+    notify  => Service['apache']
+  }
+
   file { '/var/log/httpd':
     ensure => directory,
     owner  => 'root',
